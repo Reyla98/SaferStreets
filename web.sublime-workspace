@@ -1,0 +1,1048 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"form",
+				"form-control"
+			],
+			[
+				"incd",
+				"incident_adress"
+			],
+			[
+				"inci",
+				"incident_description"
+			],
+			[
+				"new",
+				"new_incident"
+			],
+			[
+				"em",
+				"Email"
+			],
+			[
+				"full",
+				"fullname"
+			],
+			[
+				"padding",
+				"padding-left\tproperty"
+			],
+			[
+				"padd",
+				"padding-bottom\tproperty"
+			],
+			[
+				"margin",
+				"margin-left\tproperty"
+			],
+			[
+				"tokens",
+				"tokens_cur\t⟠"
+			],
+			[
+				"ngram",
+				"ngram_list\t⟠"
+			],
+			[
+				"ngra",
+				"ngram_list\tlist ⟠"
+			],
+			[
+				"ele",
+				"elems"
+			],
+			[
+				"vari",
+				"variability2"
+			],
+			[
+				"type",
+				"type_cur\t⟠"
+			],
+			[
+				"max",
+				"max_size\tlist ⟠"
+			],
+			[
+				"ngr",
+				"ngram_list\tlist ⟠"
+			],
+			[
+				"j",
+				"j_tokens\t⟠"
+			],
+			[
+				"add",
+				"addSlotEnd"
+			],
+			[
+				"rem",
+				"removeSlotStart"
+			],
+			[
+				"to",
+				"tokens"
+			],
+			[
+				"ty",
+				"types\tlist ⟠"
+			],
+			[
+				"elem",
+				"elems_backup\tlist ⟠"
+			],
+			[
+				"typ",
+				"types_backup\tlist ⟠"
+			],
+			[
+				"tok",
+				"tokens_ref\t⟠"
+			],
+			[
+				"var",
+				"variants\tset ⟠"
+			],
+			[
+				"group",
+				"groupEmbTags\tmodule ⟠"
+			],
+			[
+				"input",
+				"input_folder\tstr ⟠"
+			],
+			[
+				"grou",
+				"groupEmbTags\tmodule ⟠"
+			],
+			[
+				"token",
+				"tokens_cur\t⟠"
+			],
+			[
+				"ng",
+				"ngram_ref\t⟠"
+			],
+			[
+				"sple",
+				"sple_tags_cur\t⟠"
+			],
+			[
+				"tags",
+				"tags_cur\t⟠"
+			],
+			[
+				"pa",
+				"pattern\t⟠"
+			],
+			[
+				"key",
+				"key_cur\tstr ⟠"
+			],
+			[
+				"le",
+				"lemmas_gram\tdict ⟠"
+			],
+			[
+				"addSlot",
+				"addSlotStart"
+			],
+			[
+				"ma",
+				"makeNgramList(…)\tfunction ⟠"
+			],
+			[
+				"rev",
+				"reverse=…\tkeyword ⟠"
+			],
+			[
+				"me",
+				"mergeNgramLists\tfunction ⟠"
+			],
+			[
+				"mer",
+				"mergeNgramLists(…)\tfunction ⟠"
+			],
+			[
+				"h",
+				"heapq"
+			],
+			[
+				"lo",
+				"loadNgrams\tfunction ⟠"
+			],
+			[
+				"loa",
+				"loadNgrams"
+			],
+			[
+				"ngrm",
+				"ngram_list\tlist ⟠"
+			],
+			[
+				"Ngram",
+				"Ngrams_list"
+			],
+			[
+				"int",
+				"IntParameter\ttype ⟠"
+			],
+			[
+				"min",
+				"min_freq"
+			],
+			[
+				"fol",
+				"folder_name"
+			],
+			[
+				"N",
+				"NgramGrouper\ttype ⟠"
+			],
+			[
+				"loc",
+				"LocalTarget\ttype ⟠"
+			],
+			[
+				"SW_",
+				"SW_mid_tag"
+			],
+			[
+				"SW_e",
+				"SW_end_tag"
+			],
+			[
+				"SW_mi",
+				"SW_mid_tag"
+			],
+			[
+				"corpus",
+				"corpus_name"
+			],
+			[
+				"main",
+				"main_parser\tArgumentParser ⟠"
+			],
+			[
+				"long",
+				"long_grams\tdict ⟠"
+			],
+			[
+				"small",
+				"small_keys\tlist ⟠"
+			],
+			[
+				"smal",
+				"small_grams\tdict ⟠"
+			],
+			[
+				"s",
+				"small_key\t⟠"
+			],
+			[
+				"sm",
+				"small_grams\tdict ⟠"
+			],
+			[
+				"sml",
+				"small_keys"
+			],
+			[
+				"file",
+				"file_lst\tlist ⟠"
+			],
+			[
+				"tag",
+				"tag_gram\t⟠"
+			],
+			[
+				"filt",
+				"filtered\tint ⟠"
+			],
+			[
+				"Inde",
+				"IndexError\ttype ⟠"
+			],
+			[
+				"filter",
+				"filterEmbeddedEnd(…)\tfunction ⟠"
+			],
+			[
+				"out",
+				"outputFolder"
+			],
+			[
+				"corpu",
+				"corpus_name"
+			],
+			[
+				"nram",
+				"ngram_disp"
+			],
+			[
+				"types",
+				"types_cur"
+			],
+			[
+				"print",
+				"printhead"
+			],
+			[
+				"fi",
+				"filtreTokenFreq1()\tfunction ⟠"
+			],
+			[
+				"ngram_",
+				"ngrams_size"
+			],
+			[
+				"nga",
+				"ngram"
+			],
+			[
+				"freq",
+				"freqCum()\tfunction ⟠"
+			],
+			[
+				"path",
+				"pathlib\tmodule ⟠"
+			],
+			[
+				"set",
+				"set_defaults"
+			],
+			[
+				"sple_t",
+				"sple_tag_corr"
+			],
+			[
+				"in",
+				"input_file"
+			],
+			[
+				"nbr",
+				"nbrVar\tfunction ⟠"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"n",
+				"ngram\tstr ⟠"
+			],
+			[
+				"TT",
+				"TTline"
+			],
+			[
+				"sent",
+				"sentences\t★ pro ⟠"
+			],
+			[
+				"ful",
+				"full_stop"
+			],
+			[
+				"sent_list",
+				"sent_list.append\t★ pro ⟠"
+			],
+			[
+				"toek",
+				"token_list"
+			],
+			[
+				"fu",
+				"full_stop"
+			],
+			[
+				"choi",
+				"choices=[\t★ pro ⟠"
+			],
+			[
+				"make",
+				"makeTagsCorr(…)\tfunction ⟠"
+			],
+			[
+				"sle",
+				"sple_tag\tdict ⟠"
+			],
+			[
+				"stop",
+				"stopwords_file"
+			],
+			[
+				"SW",
+				"SW_end_lem"
+			],
+			[
+				"SW_beg",
+				"SW_beg_lem"
+			],
+			[
+				"SW_b",
+				"SW_beg_tag"
+			],
+			[
+				"sp",
+				"sple_tags"
+			],
+			[
+				"X",
+				"XMyGram\tmodule ⟠"
+			],
+			[
+				"parser",
+				"parser_xngram"
+			],
+			[
+				"root",
+				"root_path\t⟠"
+			],
+			[
+				"printAll",
+				"printAllVar\t★ pro ⟠"
+			],
+			[
+				"pick",
+				"pickle.dump\t★ pro ⟠"
+			],
+			[
+				"mygra",
+				"mygrams_final_list\t★ pro ⟠"
+			],
+			[
+				"myg",
+				"mygram"
+			],
+			[
+				"my",
+				"mygrams_list\tdict | list ⟠"
+			],
+			[
+				"elems",
+				"elems_cur"
+			],
+			[
+				"mygr",
+				"mygram_cur\t★ pro ⟠"
+			],
+			[
+				"m",
+				"mygram_list\t★ pro ⟠"
+			],
+			[
+				"argp",
+				"argparse.SUPPRESS\t★ pro ⟠"
+			],
+			[
+				"inp",
+				"input_files"
+			],
+			[
+				"myGram",
+				"mygrams_list\t⟠"
+			],
+			[
+				"ngrams",
+				"ngrams_list"
+			],
+			[
+				"lemm",
+				"lemmaGrams2MyGrams"
+			],
+			[
+				"lemma",
+				"lemmas_ref\t⟠"
+			],
+			[
+				"list",
+				"list_tup\tlist ⟠"
+			],
+			[
+				"sort",
+				"sortNgramsPerLemma"
+			],
+			[
+				"TTtok",
+				"TTtoken_list"
+			],
+			[
+				"Ng",
+				"Ngrams_list"
+			],
+			[
+				"pickle",
+				"pickle.load(file\t★ pro ⟠"
+			],
+			[
+				"load",
+				"loadTagFile"
+			],
+			[
+				"arg",
+				"argParser\t★ pro ⟠"
+			],
+			[
+				"argparse",
+				"argparse.ArgumentParser\t★ pro ⟠"
+			],
+			[
+				"sto",
+				"stop_words_begin\t__class__ | list | str ⟠"
+			],
+			[
+				"st",
+				"stop_words_end"
+			],
+			[
+				"toke",
+				"tokens_list"
+			],
+			[
+				"re",
+				"removeLong"
+			],
+			[
+				"wri",
+				"writelines(…)\tfunction ⟠"
+			],
+			[
+				"write",
+				"writelines(…)\tfunction ⟠"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/laurane/Progra/mongodb_tests/mongodb-express.js",
+			"settings":
+			{
+				"buffer_size": 774,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/media/Storage/Documents/UCL/Projet d'approfondissement/projet intro"
+	],
+	"file_history":
+	[
+		"/media/Storage/Documents/UCL/Web/projet intro/vScript_Olivia/incident.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/vScript_Olivia/idpage.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/vScript_Olivia/homepage.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/vScript_Olivia/static.css",
+		"/media/Storage/Documents/UCL/Web/projet intro/bootstrap.css",
+		"/media/Storage/Documents/UCL/Web/projet intro/vscripts/static.css",
+		"/media/Storage/Documents/UCL/Web/projet intro/vscripts/incident.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/vscripts/idpage.html",
+		"/media/Storage/Documents/UCL/Web/JS/getDate.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/vStatique/static.css",
+		"/media/Storage/Documents/UCL/Web/projet intro/vStatique/idpage.html",
+		"/home/laurane/Progra/PatternExtractionPackage/ex_patterns.txt",
+		"/media/Storage/Documents/UCL/Web/projet intro/all_pages/idpage.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/all_pages/homepage.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/all_pages/static.css",
+		"/media/Storage/Documents/UCL/Web/projet intro/all_pages/incident.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/version olivia/homepage.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/version olivia/idpage.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/style.css",
+		"/media/Storage/Documents/UCL/Web/projet intro/incident.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/idpage.html",
+		"/tmp/mozilla_laurane0/static.css",
+		"/home/laurane/.cache/.fr-Y7oSJH/Page d'acceuil.css",
+		"/home/laurane/.cache/.fr-f4rTTE/idpage/idpage.css",
+		"/media/Storage/Documents/UCL/Web/projet intro/Page d'acceuil.html",
+		"/media/Storage/Documents/UCL/Web/projet intro/Page d'acceuil.css",
+		"/home/laurane/Progra/PatternExtractionPackage/config/punc.stopwords",
+		"/home/laurane/Progra/PatternExtractionPackage/config/default.json",
+		"/home/laurane/Progra/PatternExtractionPackage/lib/Ngram.py",
+		"/home/laurane/Progra/PatternExtractionPackage/lib/Pattern.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/buildPatterns.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/__init__.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/__main__.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/tmp.py",
+		"/home/laurane/Progra/PatternExtractionPackage/objetifs.txt",
+		"/media/Storage/Documents/PEP/removeEmbNgrams/corpustestSENT8-3-0_filteredEmb.ngrams",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/groupEmbTags.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/groupNgrams.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/sortNgramsPerSize.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/removeEmbeddedNgrams.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/XMyGram.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/.sublime-workspace",
+		"/home/laurane/Progra/_Stage/stage/XMyGram.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/Xpatterns_tags.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/Xpatterns.py",
+		"/home/laurane/Progra/_Stage/stage/Xngrams.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/brouillon.py",
+		"/home/laurane/Progra/PatternExtractionPackage/lib/MyDeque.py",
+		"/media/Storage/Documents/corpora/corpustest/corpustest.txt",
+		"/media/Storage/Documents/corpora/corpustest/corpustest2.txt",
+		"/home/laurane/Progra/PatternExtractionPackage/setup.py",
+		"/media/Storage/Documents/Alle fragen.txt",
+		"/media/Storage/Documents/PEP/removeEmbNgrams/corpustestSENT13-2-0_filteredEmb.ngrams",
+		"/home/laurane/Progra/Stage/stage/Xngrams_filterEmb.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/createNgramBin.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/Xngrams.py",
+		"/home/laurane/Desktop/tuto_install",
+		"/media/Storage/Documents/PEP/groupNgrams/corpustestSENT0.ngrams2",
+		"/media/Storage/Documents/PEP/Xngrams/corpustest2SENT0.ngrams2",
+		"/media/Storage/Documents/PEP/Xngrams/corpustest2SENT0.ngrams3",
+		"/media/Storage/Documents/PEP/Xngrams/corpustest2SENT0.ngrams4",
+		"/media/Storage/Documents/PEP/Xngrams/corpustest2SENT0.ngrams5",
+		"/media/Storage/Documents/PEP/Xngrams/corpustest2SENT0.ngrams13",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/tagger.py",
+		"/media/Storage/Documents/PEP/ngrams_filtered/corpustestSENT13-2-0_filtered.ngrams",
+		"/media/Storage/Documents/UCL/Projet d'approfondissement/projet intro/style.css",
+		"/media/Storage/Documents/UCL/Projet d'approfondissement/projet intro/bootstrap.css",
+		"/media/Storage/Documents/UCL/Projet d'approfondissement/projet intro/incident.html",
+		"/media/Storage/Documents/UCL/Projet d'approfondissement/css/styles/web-app.css",
+		"/media/Storage/Documents/UCL/Projet d'approfondissement/css/styles/web-page.css",
+		"/media/Storage/Documents/UCL/Projet d'approfondissement/css/css-example.css",
+		"/home/laurane/Progra/Stage/lib/Ngram.py",
+		"/media/Storage/Documents/PEP/ngrams_filtered/txtSENT13-3-0_filtered.ngrams",
+		"/media/Storage/Documents/PEP/ngrams_filtered/corpustestSENT13-3-0_filtered.ngrams",
+		"/media/Storage/Documents/PEP/ngrams/corpustest2SENT0.ngrams4",
+		"/media/Storage/Documents/PEP/ngrams/corpustest2SENT0.ngrams12",
+		"/media/Storage/Documents/PEP/ngrams/corpustest_groupedSENT0.ngrams3",
+		"/media/Storage/Documents/PEP/ngrams/txt_groupedSENT0.ngrams3",
+		"/media/Storage/Documents/PEP/ngrams/txt_groupedSENT0.ngrams7",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/removeEmbedded.py",
+		"/media/Storage/Documents/PEP/ngrams/COCA_tvmSENT13-3-0.ngrams",
+		"/media/Storage/Documents/PEP/ngrams/ICLE_FrenchSENT13-3-0.ngrams",
+		"/media/Storage/Documents/PEP/ngrams/COCA_acadSENT13-3-0.ngrams",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/Xngrams_old.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/groupNgramsBigFiles.py",
+		"/home/laurane/Progra/Stage/stage/groupNgramsBigFiles.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/groupNgramsSmallFiles.py",
+		"/home/laurane/Progra/PatternExtractionPackage/PEP/VPR.py",
+		"/home/laurane/Progra/Stage/stage/Xngrams.py",
+		"/home/laurane/Progra/Stage/stage/__main__.py",
+		"/home/laurane/Progra/PatternExtractionPackage/config/Penn-Tree-Bank_simplified_tagset.json",
+		"/home/laurane/Progra/PatternExtractionPackage/config/XMyGram.json",
+		"/home/laurane/Progra/PatternExtractionPackage/config/Xngram.json",
+		"/home/laurane/Progra/PatternExtractionPackage/config/Xseq.json",
+		"/home/laurane/Progra/Stage/stage/Xseq.py",
+		"/home/laurane/Progra/Stage/stage/ICLE15.mygram",
+		"/home/laurane/Progra/Stage/stage/XMyGram.py",
+		"/home/laurane/Progra/PatternExtractionPackage/.venv/.gitignore",
+		"/media/Storage/Documents/UCL/Projet d'approfondissement/notes.txt",
+		"/media/Storage/Documents/corpora/ICLE15.ngram",
+		"/home/laurane/Progra/Stage/eval/OliverComplet20v0.3.txt",
+		"/home/laurane/Progra/Stage/stage/tmp.py",
+		"/home/laurane/Progra/Stage/stage/groupNgramsSmallFiles.py",
+		"/media/Storage/Documents/corpora/COCA/COCA.filtered.ngrams",
+		"/home/laurane/Progra/Stage/stage/groupNgrams.py",
+		"/home/laurane/Progra/Stage/.gitignore",
+		"/media/Storage/Documents/corpora/COCA/COCA.ngram3.tmpCOCA.ngram12.tmp.merged",
+		"/media/Storage/Documents/corpora/COCA/COCA.ngram3.tmp",
+		"/home/laurane/Progra/Stage/ngrams/NOW_corpus10.mygram",
+		"/media/Storage/Documents/corpora/OliverTwist.ngram",
+		"/home/laurane/Progra/Stage/stage/corpustest.ngram",
+		"/home/laurane/Progra/Stage/stage/OliverTwist.ngram",
+		"/home/laurane/Progra/Stage/stage/grep",
+		"/home/laurane/Progra/Stage/NOW_corpus25.mygram",
+		"/media/Storage/Documents/corpora/OliverTwist.mygram",
+		"/home/laurane/Downloads/Text-NSP-1.29/bin/count.pl",
+		"/home/laurane/Downloads/Text-NSP-1.29/bin/statistic.pl",
+		"/home/laurane/Desktop/Pardonne moi.txt",
+		"/home/laurane/Progra/Stage/stage/XMyGram2.py",
+		"/media/Storage/Documents/corpora/ICLE_lga/ICLE_ko.ngram",
+		"/home/laurane/Progra/Stage/stage/Xngram_tmp.py",
+		"/home/laurane/Progra/Stage/corpustest/test.allngram",
+		"/home/laurane/Progra/Stage/corpustest/corpustest.allngram",
+		"/media/Storage/Documents/corpora/ICLE_lga/ICLE_French.allngram",
+		"/media/Storage/Documents/corpora/ICLE_lga/Xngram_tmp.allngram",
+		"/home/laurane/Progra/Stage/stage/ICLE8dispvariability.mygram",
+		"/home/laurane/Progra/Stage/config/Xseq.json",
+		"/home/laurane/.cache/.fr-itWvkm/Text-NSP-1.29/bin/count.pl"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"static",
+			"lig",
+			"li",
+			"lig",
+			"lig\t\t",
+			"ligne",
+			"indic",
+			"form",
+			"head",
+			"ligne_espace",
+			"premiere_ligne",
+			"hover",
+			"label",
+			"form2",
+			"Utilisateur",
+			"print(\"ref",
+			"ref",
+			"nbr_slot_start",
+			"print",
+			"end",
+			"isl",
+			"print",
+			"tags_ref",
+			"alignNgrams",
+			"config",
+			"sortNgramsPerLemma",
+			"print(",
+			"stri",
+			"alignNgrams",
+			"appendleft(\"*\")",
+			"append(\"*\")",
+			"sublist",
+			"prin",
+			"[::",
+			"ngram_",
+			"ngram_\t",
+			"print",
+			"prin",
+			"sentences",
+			"config[",
+			"As",
+			"as",
+			"50px",
+			"lead",
+			"sple_",
+			"makeNgramsList",
+			"sys",
+			"args",
+			"sys",
+			"args['corpora']",
+			"if (.+?) != \"None\"",
+			"is not None",
+			"null",
+			"(\\(self\\.SW_.*?, \".+?\"), config",
+			"(\\(self\\.SW_.*?, \"tk\"), config",
+			"(self\\.SW_.*?, \"tk\"), config",
+			"(self\\..*?, \"tk\"), config",
+			"(self\\.SW_beg_tk, \"tk\"), config",
+			"(self.SW_beg_tk, \"tk\"), config",
+			"config\\[\"(.*?)\"\\]",
+			"config[\"(.*?)\"]",
+			"parser_Xtract",
+			"config\\[\"(.*?)\"\\]",
+			"config\\[\"(SW_.*)\"\\]",
+			"config\\[\"SW_.*",
+			"config[\"SW_.*",
+			"config[\"SW_*",
+			"corpus",
+			"main_parser",
+			"parser_Xtract",
+			"parser_groupNgram",
+			"parser_xmygram",
+			"parser_xngram",
+			"to_ret",
+			"len_dict_key",
+			"split",
+			"lib",
+			"pprint",
+			"ChainMap",
+			"ngramFreq",
+			"getDefaultFreqCombos",
+			"opt_set_freq_combo",
+			"freq_combo",
+			"set_freq_combo",
+			"opt_set_freq_combo",
+			"^to V to",
+			"^to V to$",
+			"^to V to",
+			"to V to",
+			"3",
+			"5",
+			"N N OTH N OTH N",
+			"N N OTH N OTH N ",
+			"N N OTH N OTH N \n",
+			"price showed",
+			"weak performance of ",
+			"meal ap",
+			"Lena Headey",
+			"graduate GPA",
+			"N OTH",
+			", config",
+			"sple_tag",
+			"(SW_..._...?)",
+			".tags[",
+			"print",
+			"xmygram_parser",
+			"argParser",
+			"SW_",
+			"sage",
+			"argParser",
+			">>> ",
+			"txt_file",
+			"os",
+			"n",
+			"min_freq",
+			"self.all",
+			"self.list",
+			"input_files",
+			")",
+			"config[\"",
+			"SW_",
+			" = config\\[.+",
+			". File must contain one regular expression per line (python re syntax)",
+			"=",
+			".bin.tag",
+			"TTtoken_list",
+			"_middle",
+			"_begin"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"extendleft([\"*\"] * nbr)",
+			"extend([\"*\"] * nbr)",
+			"if $1 != \"None\" and $1 is not None",
+			"!= \"None\"",
+			"\"None\"",
+			"$1",
+			"self.$1",
+			"main_parser",
+			"self.$1",
+			"self.($1)",
+			"luigi.Parameter()",
+			"parser_Xtract",
+			"main_parser",
+			", pos, config",
+			"config[\"(0)\"]",
+			"parser_xmygram",
+			"xmygram_parser",
+			"config[\"SW_",
+			" parser_xngram",
+			" ",
+			"",
+			"input_file",
+			",\\ndefault=argparse.SUPPRESS)",
+			"makeStopWordsList(config[\"",
+			"makeStopWordsList(",
+			"global SW_",
+			" ",
+			"*",
+			":",
+			"_beg_tk",
+			"SW_",
+			"ngram_list",
+			"ngram_freq",
+			"freq",
+			"Trie",
+			"writeNgramFile",
+			"isComplete",
+			"children",
+			"getFreq",
+			"word",
+			"isComplete",
+			"filterEmbNgrams",
+			"Xngrams"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"folders":
+	[
+		{
+			"path": "/media/Storage/Documents/UCL/Projet d'approfondissement/projet intro"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/laurane/Progra/mongodb_tests/mongodb-express.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								774,
+								774
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 108.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Progra/PatternExtractionPackage/PEP/.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 132.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
