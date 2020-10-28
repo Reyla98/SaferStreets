@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "consolidate": "^0.16.0",
+    "dialogs": "^2.0.1",
     "express": "^4.17.1",
     "hogan": "^1.0.2",
     "mongodb": "^3.6.2",

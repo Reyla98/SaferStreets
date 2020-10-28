@@ -9,12 +9,12 @@
   <body>
     <div class="head">
       <nav class="navbar navbar-expand-lg fixed-top">
-        <a class="navbar-brand" href="homepage.html"><img src="logo.png" width="50" height="50" alt="logo"> SaferStreets</a>
+        <a class="navbar-brand" href="/homepage"><img src="logo.png" width="50" height="50" alt="logo"> SaferStreets</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <a class="nav-link link" href="incident.html">Report a new incident</a>
+          <a class="nav-link link" href="/reportIncident">Report a new incident</a>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
@@ -32,42 +32,17 @@
         <p align="right" style="margin-right:160px" name="date">{{date}}</p>
       <table style="width:90%" align="center" class="ligne_espace">
         <tr align="center">
-          <th width="40%">Description</th>
-          <th width="25%">Address</th>
-          <th width="15%">Reported by</th>
-          <th width="20%">Date</th>
-        </tr>
+					<th width="40%">Description</th>
+					<th width="25%">Address</th>
+					<th width="15%">Reported by</th>
+					<th width="20%">Date</th>
+				</tr>
 
-        <tr>
-          <td>First incident</td>
-          <td>Esplanade</td>
-          <td>Romain</td>
-          <td>22 september 2020</td>
-        </tr>
-
-        <tr>
-          <td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
-        </tr>
-
-        <tr>
-          <td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
-        </tr>
-
-        <tr>
-          <td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
-        </tr>
-
-        <tr>
-          <td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
-        </tr>
-
-        <tr>
-          <td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
-        </tr>
-
-        <tr>
-          <td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
-        </tr>
+				{{#incident_list}}
+				<tr>
+					<td>{{description}}</td><td>{{address}}</td><td>{{user}}</td><td>{{date}}</td>
+				</tr>
+				{{/incident_list}}
 
       </table>
     </div>
