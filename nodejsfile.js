@@ -3,11 +3,18 @@ let consolidate = require('consolidate');
 let MongoClient = require('mongodb').MongoClient;
 let Server = require('mongodb').Server;
 let session = require('express-session');
+let bodyParser = require("body-parser");
+var https = require('https');
+var fs = require('fs');
 
 let app = express();
 app.engine('html', consolidate.hogan);
 app.set('views','static');
 app.use(express.static('static'));
+
+app.use(bodyParser.json());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({secret:'safestreets123'}));
 
 
@@ -42,16 +49,16 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
     });
   });
 
-  app.get('/register', (req,res) => {
-    dbo.collection('saferstreetsUsers').findOne({"username": req.query.username}, (err, result)=>{
+  app.post('/register', (req,res) => {
+    dbo.collection('saferstreetsUsers').findOne({"username": req.body.username}, (err, result)=>{
       if(err) throw err;
       console.log(result);
       if (result!=null){
-        res.redirect('idpage.html');
+        res.render('idpage.html', {registerErrorMessage : "Username already taken"});
       }
       else {
-        let username = req.query.username;
-        let password = req.query.pwd;
+        let username = req.body.username;
+        let password = req.body.pwd;
         var newUser = {"username" : username, "password" : password};
         dbo.collection('saferstreetsUsers').insertOne(newUser, function(err,result){
           if(err) throw err;
@@ -65,21 +72,21 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
     
 
   app.get('/reportIncident', (req,res)=> {
-    if(req.session.username!=null){
+    if(req.session.username){
       res.render("incident.html", {username : req.session.username});
     }
     else{
-      res.redirect("/loginPage");
+      res.render("idpage.html" , {someErrorMessage:"Please log in or create an account first"});
     }
 });
 
-  app.get('/loginPage', (req,res) => {
+  app.get('/login', (req,res) => {
     res.render("idpage.html");
   });
 
-  app.get('/addIncident', (req,res) => {
-    let incidentDescription = req.query.incident_description;
-    let incidentLocation = req.query.incident_address;
+  app.post('/addIncident', (req,res) => {
+    let incidentDescription = req.body.incident_description;
+    let incidentLocation = req.body.incident_address;
     let reportedBy = req.session.username;
     let date = getFullDate();
     var newIncident = {"address" : incidentLocation, "description" : incidentDescription, "user" : reportedBy, "date" : date}
@@ -90,28 +97,34 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
     res.redirect("/homepage");
   });
 
-  app.get('/login', function(req,res,next){
-    dbo.collection('saferstreetsUsers').findOne({"username" : req.query.username}, function(err, result){
+  app.post('/loginPage', function(req,res,next){
+    dbo.collection('saferstreetsUsers').findOne({"username" : req.body.username}, function(err, result){
       if (err) throw err;
       if (result==null){
-        res.redirect('idpage.html');
+        res.render('idpage.html', {loginErrorMessage : "Wrong username or password"});
       }
       else{
-        if(result.password==req.query.pwd){
-          req.session.username = req.query.username;
-          res.render('incident.html', {username : req.query.username});
+        if(result.password==req.body.pwd){
+          req.session.username = req.body.username;
+          res.render('incident.html', {username : req.session.username});
         }
         else{
-          res.redirect('idpage.html');
+          res.render('idpage.html', {loginErrorMessage : "Wrong username or password"});
         }
       }
     });
   });
 
+  app.get('/logout', function(req,res,next){
+    req.session.username = null;
+    res.redirect("/homepage");
+  });
+
  // app.get('*', (req, res) => {
    // res.status(404).sent("Page Not Found");
  // });
-  app.listen(8080);
+  https.createServer({key: fs.readFileSync('./key.pem'), cert: fs.readFileSync('./cert.pem'),
+  passphrase: 'ingi'}, app).listen(8080);
   console.log("Exress server started on port 8080");
 });
 
