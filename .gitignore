@@ -1,4 +1,7 @@
 trash
 *workspace
 *.zip
-DataBase
+DataBase/*
+package*
+*.pem
+node_modules/*
