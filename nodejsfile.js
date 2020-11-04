@@ -51,7 +51,6 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
     });
   });
   
-  
   app.get('/searchincident', (req, res) => {
 	let searchWords = req.query.search_words;
 	dbo.collection('incidents').find({$text:{$search:searchWords}}).toArray((err, doc) => {
