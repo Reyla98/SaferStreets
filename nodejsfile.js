@@ -12,6 +12,7 @@ app.engine('html', consolidate.hogan);
 app.set('views','static');
 app.use(express.static('static'));
 
+app.use(bodyParser.text());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,10 +34,26 @@ function getFullDate(){
 
 MongoClient.connect('mongodb://localhost:27017', (err, db) => {
   dbo = db.db("saferstreets");
+  dbo.collection('incidents').createIndex({"description":"text","address":"text","user":"text","date":"text"});
   if (err) throw err;
 
   app.get('/homepage', (req, res) => {
     dbo.collection('incidents').find({}).toArray((err, doc) => {
+      if (err) throw err;
+      if(req.session.username!=null){
+        let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+        res.render('homepage_loggedOn.html', newDoc)
+      }
+      else{
+        let newDoc = {"incident_list" : doc, "date_today" : date()};
+        res.render('homepage.html', newDoc);
+      }
+    });
+  });
+  
+  app.get('/searchincident', (req, res) => {
+	let searchWords = req.body.search_words;
+	dbo.collection('incidents').find({$text:{$search:searchWords}}).toArray((err, doc) => {
       if (err) throw err;
       if(req.session.username!=null){
         let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
