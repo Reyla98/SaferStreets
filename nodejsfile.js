@@ -6,6 +6,8 @@ let session = require('express-session');
 let bodyParser = require("body-parser");
 var https = require('https');
 var fs = require('fs');
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 let app = express();
 app.engine('html', consolidate.hogan);
@@ -59,13 +61,15 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
       else {
         let username = req.body.username;
         let password = req.body.pwd;
-        var newUser = {"username" : username, "password" : password};
-        dbo.collection('saferstreetsUsers').insertOne(newUser, function(err,result){
+        bcrypt.hash(password, saltRounds, function(err, hash){
+          var newUser = {"username" : username, "password" : hash};
+          dbo.collection('saferstreetsUsers').insertOne(newUser, function(err,result){
           if(err) throw err;
-          console.log('User added successfuly');
+            console.log('User added successfuly');
+          });
+          req.session.username = username;
+          res.render("incident.html",{username : req.session.username});
         });
-        req.session.username = username;
-        res.render("incident.html",{username : req.session.username});
       }
     });
   });
@@ -104,13 +108,16 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
         res.render('idpage.html', {loginErrorMessage : "Wrong username or password"});
       }
       else{
-        if(result.password==req.body.pwd){
-          req.session.username = req.body.username;
-          res.render('incident.html', {username : req.session.username});
-        }
-        else{
-          res.render('idpage.html', {loginErrorMessage : "Wrong username or password"});
-        }
+        bcrypt.compare(req.body.pwd, result.password, function(err, result){
+          if(err) throw err;
+          if(result){
+            req.session.username = req.body.username;
+            res.render('incident.html', {username : req.session.username});
+          }
+          else{
+            res.render('idpage.html', {loginErrorMessage : "Wrong username or password"});
+          }
+        });
       }
     });
   });
