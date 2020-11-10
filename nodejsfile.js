@@ -7,6 +7,7 @@ let bodyParser = require("body-parser");
 var https = require('https');
 var fs = require('fs');
 var bcrypt = require('bcrypt');
+var _ = require('underscore');
 const saltRounds = 10;
 
 let app = express();
@@ -59,11 +60,19 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
       if (err) throw err;
       if(req.session.username!=null){
         let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
-        res.render('homepage_loggedOn.html', newDoc)
+        if (doc.length == 0){
+			res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+		} else {
+			res.render('homepage_loggedOn.html', newDoc);
+		}
       }
       else{
         let newDoc = {"incident_list" : doc, "date_today" : date()};
-        res.render('homepage.html', newDoc);
+        if (doc.length == 0){
+			res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+		} else {
+			res.render('homepage.html', newDoc);
+		}
       }
     });
   });
