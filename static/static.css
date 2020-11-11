@@ -83,6 +83,6 @@ label{
   width:90%;
 }
 
-.navbar p {
+.navbar .navbar-text {
   color: white;
 }
