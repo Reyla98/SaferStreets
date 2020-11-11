@@ -7,6 +7,7 @@ let bodyParser = require("body-parser");
 var https = require('https');
 var fs = require('fs');
 var bcrypt = require('bcrypt');
+var _ = require('underscore');
 const saltRounds = 10;
 
 let app = express();
@@ -36,9 +37,8 @@ function getFullDate(){
 
 MongoClient.connect('mongodb://localhost:27017', (err, db) => {
   dbo = db.db("saferstreets");
-  dbo.collection('incidents').createIndex({"description":"text","address":"text","user":"text","date":"text"});
+  dbo.collection('incidents').createIndex({"description":"text"});
   if (err) throw err;
-
   app.get('/homepage', (req, res) => {
     dbo.collection('incidents').find({}).toArray((err, doc) => {
       if (err) throw err;
@@ -61,9 +61,16 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
     let searchWords = req.query.search_words;
     dbo.collection('incidents').find({$text:{$search:searchWords, $language:"en"}}).toArray((err, doc) => {
       if (err) throw err;
-      if(req.session.username!=null){
+	  if (doc.length == 0){
+		if (req.session.username != null){
+			res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+		} else {
+		    res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+		}
+	  }
+      else if(req.session.username!=null){
         let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
-        res.render('homepage_loggedOn.html', newDoc)
+        res.render('homepage_loggedOn.html', newDoc);
       }
       else{
         let newDoc = {"incident_list" : doc, "date_today" : date()};
@@ -86,7 +93,7 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
           var newUser = {"username" : username, "password" : hash};
           dbo.collection('saferstreetsUsers').insertOne(newUser, function(err,result){
           if(err) throw err;
-            console.log('User added successfuly');
+            console.log('User added successfully');
           });
           req.session.username = username;
           res.render("incident.html",{username : req.session.username});
@@ -95,7 +102,6 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
     });
   });
     
-
   app.get('/reportIncident', (req,res)=> {
     if(req.session.username){
       res.render("incident.html", {username : req.session.username});
@@ -105,6 +111,10 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
     }
 });
 
+  app.get('/advanced_search', (req,res) => {
+    res.render("advancedsearch.html");
+  });
+  
   app.get('/login', (req,res) => {
     res.render("idpage.html");
   });
@@ -117,7 +127,7 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
     var newIncident = {"address" : incidentLocation, "description" : incidentDescription, "user" : reportedBy, "date" : date}
     dbo.collection('incidents').insertOne(newIncident, function(err,res){
       if(err) throw err;
-      console.log("Incident added successfuly");    
+      console.log("Incident added successfully");    
     });
     res.redirect("/homepage");
   });
@@ -146,6 +156,256 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
   app.get('/logout', function(req,res,next){
     req.session.username = null;
     res.redirect("/homepage");
+  });
+  
+  app.get('/advsearch', (req, res) => {
+	let descr = req.query.incident_descr;
+	let loc = req.query.incident_location;
+	let usern = req.query.reportedby_user;
+	let dateof = req.query.incident_date;
+	if (descr == "" && loc == "" && usern == "" && dateof == ""){
+		res.render('advancedsearch.html', {searchErrorMessage : "Fill at least one search field"});
+	} else {
+		if (descr != "" && loc != "" && usern != "" && dateof != ""){
+			dbo.collection('incidents').find({$text:{$search:descr, $language:"en"}, $adress:loc, $user:usern, $date:dateof}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		} else if (descr != "" && loc != "" && usern != "" && dateof == ""){
+			dbo.collection('incidents').find({$text:{$search:descr, $language:"en"}, $adress:loc, $user:usern}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr != "" && loc != "" && usern == "" && dateof == ""){
+			dbo.collection('incidents').find({$text:{$search:descr, $language:"en"}, $adress:loc}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr != "" && loc == "" && usern == "" && dateof == ""){
+			dbo.collection('incidents').find({$text:{$search:descr, $language:"en"}, $adress:loc}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr != "" && loc == "" && usern != "" && dateof != ""){
+			dbo.collection('incidents').find({$text:{$search:descr, $language:"en"}, $user:usern, $date:dateof}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr != "" && loc == "" && usern != "" && dateof == ""){
+			dbo.collection('incidents').find({$text:{$search:descr, $language:"en"}, $user:usern}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr != "" && loc == "" && usern == "" && dateof != ""){
+			dbo.collection('incidents').find({$text:{$search:descr, $language:"en"}, $date:dateof}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr == "" && loc != "" && usern != "" && dateof != ""){
+			dbo.collection('incidents').find({$address:loc, $user:usern, $date:dateof}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr == "" && loc != "" && usern != "" && dateof == ""){
+			dbo.collection('incidents').find({$address:loc, $user:usern}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr == "" && loc != "" && usern == "" && dateof != ""){
+			dbo.collection('incidents').find({$address:loc, $date:dateof}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr == "" && loc != "" && usern == "" && dateof == ""){
+			dbo.collection('incidents').find({$address:loc}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr == "" && loc == "" && usern != "" && dateof != ""){
+			dbo.collection('incidents').find({$user:usern, $date:dateof}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr == "" && loc == "" && usern != "" && dateof == ""){
+			dbo.collection('incidents').find({$user:usern}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}else if (descr == "" && loc == "" && usern == "" && dateof != ""){
+			dbo.collection('incidents').find({$date:dateof}).toArray((err, doc) => {
+				if (err) throw err;
+				if (doc.length == 0){
+					if (req.session.username != null){
+						res.render('homepage_loggedOn.html',{nomatchErrorMessage : "No match found"});
+					} else {
+						res.render('homepage.html',{nomatchErrorMessage : "No match found"});
+					}
+				}else if(req.session.username!=null){
+					let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};
+					res.render('homepage_loggedOn.html', newDoc);
+				}else{
+					let newDoc = {"incident_list" : doc, "date_today" : date()};
+					res.render('homepage.html', newDoc);
+				}
+			});
+		}
+	}
   });
 
  // app.get('*', (req, res) => {
