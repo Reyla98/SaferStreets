@@ -53,9 +53,13 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
     });
   });
   
+  app.get('/', (req, res) => {
+    res.redirect("/homepage")
+  })
+
   app.get('/searchincident', (req, res) => {
-	let searchWords = req.query.search_words;
-	dbo.collection('incidents').find({$text:{$search:searchWords, $language:"en"}}).toArray((err, doc) => {
+    let searchWords = req.query.search_words;
+    dbo.collection('incidents').find({$text:{$search:searchWords, $language:"en"}}).toArray((err, doc) => {
       if (err) throw err;
       if(req.session.username!=null){
         let newDoc = {"incident_list" : doc, "date_today" : date(), username:req.session.username};

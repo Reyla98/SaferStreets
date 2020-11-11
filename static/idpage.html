@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SaferStreets</title>
+    <title>SaferStreets Identification</title>
 	<link rel="stylesheet" href="static.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
@@ -28,7 +28,7 @@
       </nav>
     </div>
     <div class="container">
-      <p style="color:red">{{someErrorMessage}}</p>
+      <p class="error_message">{{someErrorMessage}}</p>
       <h4>Existing account</h4>
       <form action="loginPage" method="post">
         <div class="form-group">
@@ -41,7 +41,7 @@
         </div>
         <button type="submit" class="btn btn-primary" name="login">Log in</button>
       </form>
-      <p style="color:red">{{loginErrorMessage}}</p>
+      <p class="error_message">{{loginErrorMessage}}</p>
 	  <div class="form2">
         <h4>New account</h4>
         <form action="register" method="post" name="new_user">
@@ -63,7 +63,7 @@
           </div>
           <button type="submit" class="btn btn-primary">Register</button>
         </form>
-        <p style="color:red">{{registerErrorMessage}}</p>
+        <p class="error_message">{{registerErrorMessage}}</p>
 	  </div>
     </div>
   </body>
