@@ -1,15 +1,10 @@
-<!doctype html>
-
 <html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ajouter un incident</title>
-    <!-- Latest compiled and minified CSS -->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="static.css">
+    <title>SaferStreets</title>
+	<link rel="stylesheet" href="static.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
   <body>
     <div class="head">
@@ -26,32 +21,39 @@
 		  </form>
 		  <a class="nav-link link" href="/advanced_search">(or go to advanced search)</a>
   	      <ul class="navbar-nav ml-auto">
-            <li class="nav-item active" >
-              <a class="nav-link link">Logged in as : {{username}} |</a>
-           </li>
-           <li>
-             <a class="nav-link link" href="/logout">Log out</a>
-           </li>
+              <li class="nav-item active">
+  	             <a class="nav-link" href="/login"><b>Log in</b> (you are not connected)<span class="sr-only">(current)</span></a>
+              </li>
   	      </ul>
         </div>
       </nav>
     </div>
     <div class="container">
-      <div class="starter-template">
-        <h4>New incident</h4>
-        <p class="lead">
-          Report new incident observed in Ottignies-Louvain-la-Neuve
-        </p>
-        <form action="addIncident" method="post">
-          <label for="description">Description of the incident:</label><br>
-          <textarea id="incident_description" name="incident_description" rows="4" cols="100" required></textarea><br>
-          <label for="address">Location of the incident:</label><br>
-          <textarea id="incident_address" name="incident_address" rows="4" cols="100" required></textarea><br>
-          <button type="submit" class="btn btn-primary" name="addIncident">Submit</button>
+        <h4>Advanced search</h4>
+        <p style="color:red">{{searchErrorMessage}}</p>
+		<form action="advsearch" method="get" name="advsearch">
+          <div class="form-group">
+            <label for="incident_descr">Incident description:</label>
+            <input type="incident_descr" class="form-control" placeholder="Search for words in the description" id="incident_descr" name="incident_descr">
+          </div>
+          <div class="form-group">
+            <label for="incident_location">Incident address:</label>
+            <input type="incident_location" class="form-control" placeholder="Search for a specific location" id="incident_location" name="incident_location">
+          </div>
+          <div class="form-group">
+            <label for="reportedby_user">Reported by:</label>
+            <input type="reportedby_user" class="form-control" placeholder="Search for a specific username" id="reportedby_user" name="reportedby_user">
+          </div>
+          <div class="form-group">
+            <label for="incident_date">Date of the incident:</label>
+            <input type="incident_date" class="form-control" placeholder="Search for a specific date" id="incident_date" name="incident_date">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
         </form>
-      </div>
+	  </div>
     </div>
   </body>
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
