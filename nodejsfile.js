@@ -7,7 +7,6 @@ let bodyParser = require("body-parser");
 var https = require('https');
 var fs = require('fs');
 var bcrypt = require('bcrypt');
-var _ = require('underscore');
 const saltRounds = 10;
 
 let app = express();
@@ -108,7 +107,12 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
 });
 
   app.get('/advanced_search', (req,res) => {
-    res.render("advancedsearch.html");
+	if(req.session.username){
+      res.render("advancedsearch_loggedOn.html", {username : req.session.username});
+    }
+    else{
+      res.render("advancedsearch.html");
+    }
   });
   
   app.get('/login', (req,res) => {

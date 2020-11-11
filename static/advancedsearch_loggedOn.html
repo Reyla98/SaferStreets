@@ -1,0 +1,63 @@
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SaferStreets</title>
+	<link rel="stylesheet" href="static.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="head">
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="/homepage"><img src="logo.png" width="50" height="50" alt="logo"> SaferStreets</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="nav-link link" href="/reportIncident">Report a new incident</a>
+		  <form action="searchincident" class="form-inline my-2 my-lg-0" method="get">
+			  <input class="form-control mr-sm-2" type="search" name="search_words" placeholder="Search description" aria-label="Search">
+			  <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+		  </form>
+		  <a class="nav-link link" href="/advanced_search">(or go to advanced search)</a>
+  	      <ul class="navbar-nav ml-auto">
+              <li class="nav-item active" >
+  	             <a class="nav-link link">Logged in as : {{username}} |</a>
+              </li>
+              <li>
+                <a class="nav-link link" href="/logout">Log out</a>
+              </li>
+  	      </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+        <h4>Advanced search</h4>
+        <p style="color:red">{{searchErrorMessage}}</p>
+		<form action="advsearch" method="get" name="advsearch">
+          <div class="form-group">
+            <label for="incident_descr">Incident description:</label>
+            <input type="incident_descr" class="form-control" placeholder="Search for words in the description" id="incident_descr" name="incident_descr">
+          </div>
+          <div class="form-group">
+            <label for="incident_location">Incident address:</label>
+            <input type="incident_location" class="form-control" placeholder="Search for a specific location" id="incident_location" name="incident_location">
+          </div>
+          <div class="form-group">
+            <label for="reportedby_user">Reported by:</label>
+            <input type="reportedby_user" class="form-control" placeholder="Search for a specific username" id="reportedby_user" name="reportedby_user">
+          </div>
+          <div class="form-group">
+            <label for="incident_date">Date of the incident:</label>
+            <input type="incident_date" class="form-control" placeholder="Search for a specific date" id="incident_date" name="incident_date">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+	  </div>
+    </div>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
