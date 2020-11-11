@@ -54,7 +54,7 @@ MongoClient.connect('mongodb://localhost:27017', (err, db) => {
   
   app.get('/searchincident', (req, res) => {
 	let searchWords = req.query.search_words;
-	dbo.collection('incidents').find($text:{$search:searchWords, $language:"en"}).toArray((err, doc) => {
+	dbo.collection('incidents').find({$text:{$search:searchWords, $language:"en"}}).toArray((err, doc) => {
 	  if (err) throw err;
 	  if (doc.length == 0){
 		if (req.session.username != null){
